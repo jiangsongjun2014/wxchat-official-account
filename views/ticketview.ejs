@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ticket</title>
+		<meta name="viewport"content="width=device-width"/>
+	</head>
+	<body>
+		这是测试jsapiticket页面
+	</body>
+	<script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+	<script>
+		function getTicketData (){
+			var url = "http://f90b424f81ac.ngrok.io/wxticket"
+			var xhr = new XMLHttpRequest()
+			xhr.open("post", url)
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+			xhr.send('')
+			xhr.onreadystatechange = function (){
+				if (xhr.status == 200 && xhr.readyState == 4) {
+					var data = xhr.responseText
+					data = JSON.parse(data)
+					console.log(data)
+				}
+			}
+		}
+		getTicketData()
+	</script>
+</html>
